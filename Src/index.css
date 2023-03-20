@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.navigation .nav-img {
+    width: 7rem;
+    height: 3rem;
+    margin-top: -3rem;
+}
+
+.nav-img img {
+    width: 100%;
+}
+
+.navigation .list-container{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+    
+}
+
+.list-container li {
+margin-top: 4rem;
+}
+
+.list-container li:nth-child(1) {
+font-weight: 800;
+text-decoration: underline;
+}
