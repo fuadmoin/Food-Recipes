@@ -1,4 +1,6 @@
 import popup from './popup.js';
+import addNewLike from './addNewLike.js';
+import getLikes from './getLikes.js';
 
 const getFoods = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
@@ -21,18 +23,41 @@ const getFoods = async () => {
           >
           <div class="detail-container">
           <button type="button" class="comments">Comments</button>
-          <small class="likes">3 <i class="fa-regular fa-heart"></i></small>
+          <small class="likes"><span class="liked-num"> </span> <i class="fa-regular fa-heart heartsign"></i></small>
         </div>
       
        `;
+    displaylist.appendChild(node);
+    const numberOfLikes = document.querySelectorAll('.liked-num');
+
+    const numberofLikes = async () => {
+      const id = data[i].idMeal;
+      const data2 = await getLikes();
+      const num = data2.find((json) => json.item_id === id);
+      numberOfLikes[i].innerHTML = num !== undefined ? `${num.likes}` : '0';
+      return num.likes;
+    };
+    numberofLikes();
+
     const buttonComments = document.querySelectorAll('.comments');
-    buttonComments.forEach((element, index) => {
-      element.addEventListener('click', () => {
-        popup(index);
-      });
+    buttonComments[i].addEventListener('click', () => {
+      popup(i);
     });
 
-    displaylist.appendChild(node);
+    const likes = document.querySelectorAll('.heartsign');
+
+    likes[i].addEventListener('click', async (event) => {
+      if (event.target.classList.contains('fa-regular')) {
+        likes[i].classList.remove('fa-regular');
+        likes[i].classList.add('fa-solid');
+
+        await addNewLike(i);
+        numberOfLikes[i].innerHTML = `${await numberofLikes()}`;
+      } else {
+        likes[i].classList.add('fa-regular');
+        likes[i].classList.remove('fa-solid');
+      }
+    });
   }
 };
 
