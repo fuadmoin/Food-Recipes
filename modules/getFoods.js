@@ -1,4 +1,4 @@
-import popup from './popup.js'
+import popup from './popup.js';
 
 const getFoods = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
@@ -24,8 +24,14 @@ const getFoods = async () => {
           <small class="likes">3 <i class="fa-regular fa-heart"></i></small>
         </div>
       
-       `
-       ;
+       `;
+    const buttonComments = document.querySelectorAll('.comments');
+    buttonComments.forEach((element, index) => {
+      element.addEventListener('click', () => {
+        popup(index);
+      });
+    });
+
     displaylist.appendChild(node);
   }
 };

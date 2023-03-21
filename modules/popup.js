@@ -1,7 +1,8 @@
 const popSection = document.getElementById('popSection');
 
 const popUp = async (index) => {
-  const data = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef');
+  popSection.style.display = 'flex';
+  const data = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
   const json = await data.json();
   const { meals } = json;
   const mealData = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meals[index].idMeal}`);
@@ -23,10 +24,10 @@ const popUp = async (index) => {
   popupContainer.appendChild(popupImgs);
   const popUpTitle = document.createElement('h3');
   popUpTitle.innerHTML = meals[index].strMeal;
- popupContainer.appendChild(popUpTitle);
+  popupContainer.appendChild(popUpTitle);
   const divPara = document.createElement('div');
   divPara.className = 'divPara';
- popupContainer.appendChild(divPara);
+  popupContainer.appendChild(divPara);
   const para1 = document.createElement('p');
   para1.innerHTML = `<strong>Area:</strong> ${specificMeal.strArea}`;
   divPara.appendChild(para1);
@@ -37,7 +38,7 @@ const popUp = async (index) => {
   divDown.href = '#instructions';
   divDown.className = 'scrollDown';
   divDown.innerHTML = '<i class="fa-solid fa-circle-chevron-down"></i>';
- popupContainer.appendChild(divDown);
+  popupContainer.appendChild(divDown);
   const para3 = document.createElement('p');
   para3.id = 'instructions';
   para3.innerHTML = `<strong>Instructions:</strong> ${specificMeal.strInstructions}`;
@@ -54,12 +55,12 @@ const popUp = async (index) => {
   div1.appendChild(divComments);
   const h4Add = document.createElement('h4');
   h4Add.innerHTML = 'Add a comment';
- popupContainer.appendChild(h4Add);
+  popupContainer.appendChild(h4Add);
   const form = document.createElement('form');
   form.innerHTML = '<input type="text" name="name" id="nameF"><textarea name="comment" id="textComment" cols="30" rows="5"></textarea><button id="submit" type="submit">Comment</button>';
   popupContainer.appendChild(form);
   closeBtn.addEventListener('click', () => {
-    popSection.innerHTML = '';
+    popSection.style.display = 'none';
   });
 };
 
