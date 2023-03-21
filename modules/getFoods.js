@@ -1,3 +1,5 @@
+import popup from './popup.js';
+
 const getFoods = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
   const result = await response.json();
@@ -20,11 +22,16 @@ const getFoods = async () => {
           <div class="detail-container">
           <button type="button" class="comments">Comments</button>
           <small class="likes">3 <i class="fa-regular fa-heart"></i></small>
-        
-        
         </div>
       
        `;
+    const buttonComments = document.querySelectorAll('.comments');
+    buttonComments.forEach((element, index) => {
+      element.addEventListener('click', () => {
+        popup(index);
+      });
+    });
+
     displaylist.appendChild(node);
   }
 };
