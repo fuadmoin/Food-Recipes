@@ -95,6 +95,10 @@ body {
   top: 18px;
 }
 
+.heartsign {
+  cursor: pointer;
+}
+
 .fa-solid {
   color: red;
 }
