@@ -1,7 +1,9 @@
+import addComment from './addComments.js';
+import getComments from './getComments.js';
+
 const popSection = document.getElementById('popSection');
 
 const popUp = async (index) => {
-  popSection.style.display = 'flex';
   const data = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
   const json = await data.json();
   const { meals } = json;
@@ -59,9 +61,31 @@ const popUp = async (index) => {
   const form = document.createElement('form');
   form.innerHTML = '<input type="text" name="name" id="nameF"><textarea name="comment" id="textComment" cols="30" rows="5"></textarea><button id="submit" type="submit">Comment</button>';
   popupContainer.appendChild(form);
+
   closeBtn.addEventListener('click', () => {
-    popSection.style.display = 'none';
+    popSection.innerHTML = '';
   });
+  const submit = document.getElementById('submit');
+  submit.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const nameF = document.getElementById('nameF').value;
+    const commentF = document.getElementById('textComment').value;
+    if (nameF !== '' && commentF !== '') {
+      document.getElementById('nameF').value = '';
+      document.getElementById('textComment').value = '';
+      addComment(index, nameF, commentF);
+    } else {
+      const error = document.createElement('p');
+      error.className = 'error';
+      error.innerHTML = 'Please fill all the requirements';
+      setTimeout(() => {
+        error.remove();
+      }, 3000);
+      form.appendChild(error);
+      document.getElementById('textComment').insertAdjacentElement('afterend', error);
+    }
+  });
+  await getComments(index);
 };
 
 export default popUp;
