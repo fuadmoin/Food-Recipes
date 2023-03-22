@@ -16,7 +16,7 @@ const getComments = async (index) => {
       p.innerHTML = `${element.creation_date}  ${element.username}: ${element.comment}`;
       div.appendChild(p);
       const h4 = document.getElementById('comments');
-      h4.innerHTML = `Comments(${commentCounter})`;
+      h4.innerHTML = `Comments(${commentCounter()})`;
     });
   }
 };
