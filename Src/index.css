@@ -39,6 +39,7 @@ body {
 
 .list-container li {
   margin-top: 4rem;
+  font-size: 28px;
 }
 
 .list-container li:nth-child(1) {
