@@ -16,6 +16,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
 - [🚀 Live Demo](#live-demo)
+- [🔭 Watch video](#watch-video)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -62,6 +63,14 @@
 > Check out the live demo for this project [here.](https://fuadmoin.github.io/Food-Recipes/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🔭 Watch Video <a name="watch-video"> </a>
+
+> Check out the video for this project [here.]()
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
