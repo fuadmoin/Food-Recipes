@@ -106,6 +106,7 @@ body {
 
 .comments {
   font-size: 20px;
+  cursor: pointer;
   width: 120px;
   height: 35px;
   margin-top: 10px;
@@ -245,4 +246,12 @@ textarea {
   display: flex;
   width: 80%;
   justify-content: space-around;
+}
+
+.submit {
+  cursor: pointer;
+}
+
+#submit {
+  cursor: pointer;
 }
