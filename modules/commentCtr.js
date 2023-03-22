@@ -1,6 +1,3 @@
-const comments = async (count) => {
-  const h4 = document.getElementById('comments');
-  h4.innerHTML = `Comments(${count})`;
-};
+const commentCounter =  () => document.querySelectorAll('.listOfComment').length;
 
-export default comments;
+export default commentCounter;

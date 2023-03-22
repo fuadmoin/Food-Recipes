@@ -1,4 +1,4 @@
-import comments from './commentCtr.js';
+import commentCounter from './commentCtr.js';
 
 const projectID = '0PsaHQATvBBc06xhH6ES';
 const baseLink = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
@@ -15,8 +15,9 @@ const getComments = async (index) => {
       p.className = 'listOfComment';
       p.innerHTML = `${element.creation_date}  ${element.username}: ${element.comment}`;
       div.appendChild(p);
-      const count = document.querySelectorAll('.listOfComment');
-      comments(count.length);
+     
+      const h4 = document.getElementById('comments');
+  h4.innerHTML = `Comments(${commentCounter})`;
     });
   }
 };
