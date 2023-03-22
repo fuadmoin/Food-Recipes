@@ -7,9 +7,7 @@ const getFoods = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
   const result = await response.json();
   const data = result.meals;
-  const counter = foodCounter(data);
-  const counterText = document.querySelector('.food-counter');
-  counterText.innerHTML = counter !== undefined ? `(${counter})` : '(0)';
+
   const displaylist = document.querySelector('.display-list');
   for (let i = 0; i < data.length; i += 1) {
     const node = document.createElement('article');
@@ -63,6 +61,9 @@ const getFoods = async () => {
       }
     });
   }
+  const counter = foodCounter();
+  const counterText = document.querySelector('.food-counter');
+  counterText.innerHTML = `(${counter})`;
 };
 
 export default getFoods;

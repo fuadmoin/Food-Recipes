@@ -6,6 +6,7 @@ const addNewLike = async (index) => {
 
   const response2 = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/j1YpVmbR1iUd0yLMCLKR/likes/', {
     method: 'POST',
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
     },

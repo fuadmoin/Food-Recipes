@@ -1,3 +1,3 @@
-const foodCounter = (data) => data.length;
+const foodCounter = () => document.querySelectorAll('.food').length;
 
 export default foodCounter;
