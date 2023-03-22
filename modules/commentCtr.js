@@ -1,3 +1,3 @@
-const commentCounter =  () => document.querySelectorAll('.listOfComment').length;
+const commentCounter = () => document.querySelectorAll('.listOfComment').length;
 
 export default commentCounter;

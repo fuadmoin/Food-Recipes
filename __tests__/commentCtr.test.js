@@ -1,10 +1,13 @@
-import comments from '../modules/commentCtr.js';
+import commentCounter from '../modules/commentCtr.js';
 
 describe('Check counter all the comments', () => {
-  test('Should be show Comments(29) ', () => {
-    document.body.innerHTML = '<h4 id=\'comments\'></h4>';
-    const comment = document.getElementById('comments');
-    comments(29);
-    expect(comment.textContent).toEqual('Comments(29)');
+  test('Should be equal to 2 ', () => {
+    document.body.innerHTML = '<h4 class=\'listOfComment\'></h4> <h4 class=\'listOfComment\'></h4>';
+    expect(commentCounter()).toEqual(2);
+  });
+
+  test('Should be 0 ', () => {
+    document.body.innerHTML = '';
+    expect(commentCounter()).toEqual(0);
   });
 });
